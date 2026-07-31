@@ -10,18 +10,16 @@ import {
   FaInstagram,
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import { getCategories } from "@/lib/products";
 
 export default function Footer() {
-  const categories = getCategories();
   const year = new Date().getFullYear();
 
   const quickLinks = [
     { title: "Home", href: "/" },
-    { title: "Products", href: "/products" },
+    { title: "Products", href: "/#top-products" },
     { title: "Company Profile", href: "/company-profile" },
     { title: "Sitemap", href: "/sitemap" },
-    { title: "Contact", href: "/contact" },
+    { title: "Contact", href: "/#contact" },
     { title: "Our Catalogue", href: "/catalogue" },
   ];
 
@@ -36,7 +34,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#232831] text-gray-300 mt-auto">
       <div className="max-w-7xl mx-auto px-5 py-14">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {/* About */}
           <div>
             <Image
@@ -76,25 +74,6 @@ export default function Footer() {
                     className="hover:text-[#c3ab5d] transition-colors duration-300"
                   >
                     {item.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Categories */}
-          <div>
-            <h3 className="text-white text-[15px] font-semibold uppercase tracking-wide mb-5">
-              Categories
-            </h3>
-            <ul className="space-y-3 text-sm">
-              {categories.map((category) => (
-                <li key={category.slug}>
-                  <Link
-                    href={`/products?category=${category.slug}`}
-                    className="hover:text-[#c3ab5d] transition-colors duration-300"
-                  >
-                    {category.name}
                   </Link>
                 </li>
               ))}

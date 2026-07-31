@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
@@ -56,11 +55,9 @@ export default function GalleryCarousel({ items }) {
             const direction = offset === 0 ? 0 : offset > 0 ? 1 : -1;
 
             return (
-              <Link
-                key={item.slug}
-                href={`/products/${item.slug}`}
+              <div
+                key={item.src}
                 aria-hidden={offset !== 0}
-                tabIndex={offset === 0 ? 0 : -1}
                 className="absolute top-1/2 left-1/2 rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 ease-out"
                 style={{
                   width: style.width,
@@ -74,11 +71,10 @@ export default function GalleryCarousel({ items }) {
                 }}
               >
                 <Image
-                  src={item.images[0]}
+                  src={item.src}
                   alt={item.name}
                   fill
                   className="object-cover"
-                  unoptimized
                   priority={offset === 0}
                 />
                 {offset === 0 && (
@@ -89,7 +85,7 @@ export default function GalleryCarousel({ items }) {
                     </p>
                   </>
                 )}
-              </Link>
+              </div>
             );
           })}
         </div>

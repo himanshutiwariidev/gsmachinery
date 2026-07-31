@@ -1,9 +1,10 @@
-import { getAllProducts } from "@/lib/products";
+import { getGalleryImages } from "@/lib/localImages";
 import GalleryCarousel from "@/components/GalleryCarousel";
 
 export default function GallerySection() {
-  const products = getAllProducts().filter((p) => p.images?.[0]);
-  const gallery = products.slice(0, 12);
+  const gallery = getGalleryImages();
+
+  if (gallery.length === 0) return null;
 
   return (
     <section className="py-16 overflow-hidden">

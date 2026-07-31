@@ -5,11 +5,9 @@ import {
   LuHeadset,
   LuTruck,
   LuHandshake,
-  LuShieldCheck,
-  LuTrendingUp,
+
   LuSettings,
-  LuShieldHalf,
-  LuUsers,
+
 } from "react-icons/lu";
 
 const reasons = [
@@ -51,61 +49,34 @@ const reasons = [
   },
 ];
 
-const quickPoints = [
-  {
-    icon: LuShieldCheck,
-    title: "Quality Assured",
-    description: "Every machine is tested for precision and performance.",
-  },
-  {
-    icon: LuTrendingUp,
-    title: "High Efficiency",
-    description: "Engineered for maximum output with minimum waste.",
-  },
-  {
-    icon: LuSettings,
-    title: "Low Maintenance",
-    description: "Smart design for easy operation and minimal maintenance.",
-  },
-  {
-    icon: LuShieldHalf,
-    title: "Built To Last",
-    description: "Durable components for long-term reliability.",
-  },
-  {
-    icon: LuUsers,
-    title: "Customer First",
-    description: "Your success is our priority, always.",
-  },
-];
 
 export default function WhyChooseUsSection() {
   return (
     <section className="relative py-20 bg-[#fbf8f2] overflow-hidden">
       {/* Decorative corner — top left */}
       <div
-        className="hidden sm:block absolute top-0 left-0 w-56 h-56 bg-gradient-to-br from-[#d9bc72] to-[#b99631]"
+        className="hidden sm:block absolute top-0 left-0 z-0 w-28 h-28 lg:w-36 lg:h-36 bg-gradient-to-br from-[#d9bc72] to-[#b99631]"
         style={{ clipPath: "polygon(0 0, 100% 0, 0 100%)" }}
       />
       <div
-        className="hidden sm:block absolute top-0 left-0 w-40 h-40 bg-[#232831]"
+        className="hidden sm:block absolute top-0 left-0 z-0 w-20 h-20 lg:w-24 lg:h-24 bg-[#232831]"
         style={{ clipPath: "polygon(0 0, 100% 0, 0 100%)" }}
       />
 
       {/* Decorative corner — bottom right */}
       <div
-        className="hidden sm:block absolute bottom-0 right-0 w-56 h-56 bg-[#232831]"
+        className="hidden sm:block absolute bottom-0 right-0 z-0 w-28 h-28 lg:w-36 lg:h-36 bg-[#232831]"
         style={{ clipPath: "polygon(100% 100%, 0 100%, 100% 0)" }}
       />
       <div
-        className="hidden sm:block absolute bottom-0 right-0 w-40 h-40 bg-gradient-to-tl from-[#d9bc72] to-[#b99631]"
+        className="hidden sm:block absolute bottom-0 right-0 z-0 w-20 h-20 lg:w-24 lg:h-24 bg-gradient-to-tl from-[#d9bc72] to-[#b99631]"
         style={{ clipPath: "polygon(100% 100%, 0 100%, 100% 0)" }}
       />
 
       {/* Faint factory watermark */}
-      <LuFactory className="hidden lg:block absolute -left-16 top-1/2 -translate-y-1/2 text-[420px] text-[#232831]/[0.03] pointer-events-none" />
+      <LuFactory className="hidden lg:block absolute -left-16 top-1/2 -translate-y-1/2 z-0 text-[420px] text-[#232831]/[0.03] pointer-events-none" />
 
-      <div className="relative max-w-7xl mx-auto px-5">
+      <div className="relative z-10 max-w-7xl mx-auto px-5">
         {/* Header */}
         <div className="text-center mb-14">
           <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#232831]">
@@ -161,27 +132,6 @@ export default function WhyChooseUsSection() {
           ))}
         </div>
 
-        {/* Quick points bar */}
-        <div className="mt-10 bg-white rounded-2xl shadow-md p-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-0 lg:divide-x divide-gray-200">
-            {quickPoints.map((point) => (
-              <div
-                key={point.title}
-                className="flex items-start gap-3 lg:px-6 first:pl-0 first:lg:pl-0"
-              >
-                <point.icon className="text-[#b99631] text-2xl shrink-0 mt-0.5" />
-                <div>
-                  <h4 className="text-sm font-bold text-[#232831]">
-                    {point.title}
-                  </h4>
-                  <p className="text-xs text-gray-500 mt-1 leading-5">
-                    {point.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );
