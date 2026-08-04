@@ -7,12 +7,13 @@ export default function GallerySection() {
   if (gallery.length === 0) return null;
 
   return (
-    <section className="py-16 overflow-hidden">
+    <section
+      className="py-16 overflow-hidden scroll-mt-[450] md:scroll-mt-[100]"
+      id="gallery"
+    >
       <div className="max-w-7xl mx-auto px-5">
         <div className="text-center mb-12">
-          <h2 className="text-[32px] font-extrabold text-[#232831]">
-            Gallery
-          </h2>
+          <h2 className="text-[32px] font-extrabold text-[#232831]">Gallery</h2>
           <div className="w-16 h-[3px] bg-[#b99631] mx-auto mt-3"></div>
         </div>
 

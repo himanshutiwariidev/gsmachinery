@@ -17,18 +17,9 @@ export default function Footer() {
   const quickLinks = [
     { title: "Home", href: "/" },
     { title: "Products", href: "/#top-products" },
-    { title: "Company Profile", href: "/company-profile" },
-    { title: "Sitemap", href: "/sitemap" },
+    { title: "Gallery", href: "/#gallery" },
     { title: "Contact", href: "/#contact" },
-    { title: "Our Catalogue", href: "/catalogue" },
-  ];
-
-  const socialLinks = [
-    { icon: <FaFacebookF size={14} />, href: "#" },
-    { icon: <FaXTwitter size={14} />, href: "#" },
-    { icon: <FaLinkedinIn size={14} />, href: "#" },
-    { icon: <FaYoutube size={14} />, href: "#" },
-    { icon: <FaInstagram size={14} />, href: "#" },
+    { title: "About", href: "/#about" },
   ];
 
   return (
@@ -48,17 +39,6 @@ export default function Footer() {
               Manufacturer of PET blowing machines, bottle &amp; jar making
               machines, blow moulding machines and water filling machines.
             </p>
-            <div className="flex items-center gap-2 mt-5">
-              {socialLinks.map((item, index) => (
-                <Link
-                  key={index}
-                  href={item.href}
-                  className="w-8 h-8 rounded-sm bg-white/10 hover:bg-[#b99631] transition-all duration-300 flex items-center justify-center"
-                >
-                  {item.icon}
-                </Link>
-              ))}
-            </div>
           </div>
 
           {/* Quick Links */}
@@ -93,30 +73,35 @@ export default function Footer() {
               <li className="flex items-center gap-3">
                 <FaPhoneAlt className="text-[#c3ab5d] shrink-0" />
                 <a
-                  href="tel:+919910050448"
+                  href="tel:+9108045476539"
                   className="hover:text-[#c3ab5d] transition-colors duration-300"
                 >
-                  +91 9910050448
+                  +91 08045476539
                 </a>
               </li>
-              <li className="flex items-center gap-3">
-                <FaEnvelope className="text-[#c3ab5d] shrink-0" />
-                <a
-                  href="mailto:info@gsmachinery1.com"
-                  className="hover:text-[#c3ab5d] transition-colors duration-300"
-                >
-                  info@gsmachinery1.com
-                </a>
+              <li className="flex items-start gap-3">
+                <FaMapMarkerAlt className="mt-1 text-[#c3ab5d] shrink-0" />
+                <span>
+                  Kh. No. 10/3, Ground Floor, Near Shani Mandir, Tikri Khurd
+                  Village, Delhi - 110040, India
+                </span>
               </li>
             </ul>
           </div>
         </div>
       </div>
 
-      <div className="border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-5 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-400">
-          <p>&copy; {year} GS Machinery. All Rights Reserved.</p>
-          <p>Designed &amp; Developed with care</p>
+      <div className="bg-gradient-to-r from-gray-900 via-black to-gray-900 border-t border-[#c3ab5d]/30">
+        <div className="max-w-7xl mx-auto px-5 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
+          <p className="tracking-wide text-center sm:text-left">
+            &copy; {year}{" "}
+            <span className="text-[#c3ab5d] font-semibold">GS Machinery</span>.
+            All Rights Reserved.
+          </p>
+          <p className="text-center sm:text-right hover:text-[#c3ab5d] transition-colors duration-300">
+            Designed &amp; Developed by{" "}
+            <span className="font-medium">CYBERTRICKS Media Pvt Ltd</span>
+          </p>
         </div>
       </div>
     </footer>

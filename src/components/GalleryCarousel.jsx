@@ -4,23 +4,78 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
-// Visual weight of each slide relative to its distance from the active
-// (center) slide. Index 0 = center, higher indexes sit further out.
-const SLIDE_STYLES = [
-  { width: 420, height: 480, translateX: 0, scale: 1, opacity: 1, blur: 0, z: 40 },
-  { width: 300, height: 420, translateX: 300, scale: 0.85, opacity: 0.75, blur: 1, z: 30 },
-  { width: 220, height: 380, translateX: 520, scale: 0.7, opacity: 0.4, blur: 2, z: 20 },
-];
+// Responsive slide styles
+const SLIDE_STYLES = {
+  desktop: [
+    {
+      width: 420,
+      height: 480,
+      translateX: 0,
+      scale: 1,
+      opacity: 1,
+      blur: 0,
+      z: 40,
+    },
+    {
+      width: 300,
+      height: 420,
+      translateX: 300,
+      scale: 0.85,
+      opacity: 0.75,
+      blur: 1,
+      z: 30,
+    },
+    {
+      width: 220,
+      height: 380,
+      translateX: 520,
+      scale: 0.7,
+      opacity: 0.4,
+      blur: 2,
+      z: 20,
+    },
+  ],
+  mobile: [
+    {
+      width: 280,
+      height: 320,
+      translateX: 0,
+      scale: 1,
+      opacity: 1,
+      blur: 0,
+      z: 40,
+    },
+    {
+      width: 200,
+      height: 260,
+      translateX: 180,
+      scale: 0.85,
+      opacity: 0.75,
+      blur: 1,
+      z: 30,
+    },
+    {
+      width: 150,
+      height: 220,
+      translateX: 300,
+      scale: 0.7,
+      opacity: 0.4,
+      blur: 2,
+      z: 20,
+    },
+  ],
+};
 
 export default function GalleryCarousel({ items }) {
   const count = items.length;
   const [activeIndex, setActiveIndex] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const timerRef = useRef(null);
 
   const goTo = useCallback(
     (index) => setActiveIndex(((index % count) + count) % count),
-    [count]
+    [count],
   );
 
   const next = useCallback(() => goTo(activeIndex + 1), [activeIndex, goTo]);
@@ -34,14 +89,24 @@ export default function GalleryCarousel({ items }) {
     return () => clearInterval(timerRef.current);
   }, [count, isHovering]);
 
+  // ✅ Client-only mobile detection
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   if (count === 0) return null;
+
+  const styles = isMobile ? SLIDE_STYLES.mobile : SLIDE_STYLES.desktop;
 
   return (
     <div
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
-      <div className="relative h-[420px] sm:h-[480px] lg:h-[540px] overflow-hidden">
+      <div className="relative h-[320px] sm:h-[420px] lg:h-[540px] overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center">
           {items.map((item, index) => {
             let offset = index - activeIndex;
@@ -51,7 +116,7 @@ export default function GalleryCarousel({ items }) {
             const distance = Math.abs(offset);
             if (distance > 2) return null;
 
-            const style = SLIDE_STYLES[distance];
+            const style = styles[distance];
             const direction = offset === 0 ? 0 : offset > 0 ? 1 : -1;
 
             return (
@@ -65,9 +130,7 @@ export default function GalleryCarousel({ items }) {
                   zIndex: style.z,
                   filter: `blur(${style.blur}px)`,
                   opacity: style.opacity,
-                  transform: `translate(-50%, -50%) translateX(${
-                    direction * style.translateX
-                  }px) scale(${style.scale})`,
+                  transform: `translate(-50%, -50%) translateX(${direction * style.translateX}px) scale(${style.scale})`,
                 }}
               >
                 <Image
@@ -75,7 +138,8 @@ export default function GalleryCarousel({ items }) {
                   alt={item.name}
                   fill
                   className="object-cover"
-                  priority={offset === 0}
+                  sizes="(max-width: 768px) 100vw, 420px"
+                  // ❌ priority हटाएँ ताकि preload warning न आए
                 />
                 {offset === 0 && (
                   <>

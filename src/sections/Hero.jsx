@@ -3,22 +3,26 @@ import Image from "next/image";
 export const Hero = () => {
   return (
     <section className="relative w-full">
-      <div className="hidden md:block w-full h-[600px]  ">
+      {/* Desktop Banner */}
+      <div className="hidden md:block relative w-full h-[600px]">
         <Image
-          src="/desktopbanner.webp" // Replace with your banner image name
+          src="/desktopbanner.webp"
           alt="PET Blowing Machine Banner"
           fill
           priority
           className="object-cover"
+          sizes="(max-width: 768px) 100vw, 1920px"
         />
       </div>
-       <div className="md:hidden w-full h-[550px]  ">
+
+      {/* Mobile Banner */}
+      <div className="md:hidden relative w-full h-[350px]">
         <Image
-          src="/mobilebanner.webp" // Replace with your banner image name
+          src="/mobilebanner.webp"
           alt="PET Blowing Machine Banner"
           fill
-          priority
           className="object-cover"
+          sizes="100vw"
         />
       </div>
     </section>

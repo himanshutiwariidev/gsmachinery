@@ -3,17 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import {
-  FaPhoneAlt,
-  FaFacebookF,
-  FaLinkedinIn,
-  FaYoutube,
-  FaInstagram,
-  FaBars,
-  FaTimes,
-  FaChevronDown,
-} from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaPhoneAlt, FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
 
 export default function Navbar() {
   const [mobileMenu, setMobileMenu] = useState(false);
@@ -24,128 +14,69 @@ export default function Navbar() {
       href: "/",
     },
     {
+      title: "About",
+      href: "#about",
+    },
+    {
       title: "PRODUCT",
-      href: "/products",
-      dropdown: true,
+      href: "#top-products",
     },
     {
-      title: "COMPANY PROFILE",
-      href: "/company-profile",
-    },
-    {
-      title: "SITEMAP",
-      href: "/sitemap",
+      title: "Gallery",
+      href: "#gallery",
     },
     {
       title: "CONTACT",
-      href: "/contact",
-    },
-    {
-      title: "OUR CATALOGUE",
-      href: "/catalogue",
-    },
-  ];
-
-  const socialLinks = [
-    {
-      icon: <FaFacebookF size={14} />,
-      href: "#",
-    },
-    {
-      icon: <FaXTwitter size={14} />,
-      href: "#",
-    },
-    {
-      icon: <FaLinkedinIn size={14} />,
-      href: "#",
-    },
-    {
-      icon: <FaYoutube size={14} />,
-      href: "#",
-    },
-    {
-      icon: <FaInstagram size={14} />,
-      href: "#",
+      href: "#contact",
     },
   ];
 
   return (
     <header className="w-full sticky top-0 left-0 z-50 shadow-md">
+      {/* ===================== TOP BAR ===================== */}
+      <div className="bg-[#c3ab5d] text-white pb-2">
+        <div className="max-w-7xl mx-auto px-3 sm:px-5">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-2  sm:gap-6 py-4 sm:py-0 h-14 sm:h-12">
+            {/* Left - GST */}
+            <div className="text-xs sm:text-sm font-semibold">
+              <span>GST : 07AICPG7964K1ZW</span>
+            </div>
 
-
-{/* ===================== TOP BAR ===================== */}
-
-<div className="bg-[#c3ab5d] text-white">
-  <div className="max-w-7xl mx-auto px-5">
-
-    <div className="h-auto sm:h-12 py-2 sm:py-0 flex items-center justify-center sm:justify-between gap-2">
-
-      {/* Left - GST & Phone */}
-
-      <div className="flex items-center gap-3 sm:gap-6 text-xs sm:text-sm font-semibold">
-
-        <span className="">
-          GST : 07AICPG7964K1ZW
-        </span>
-
-        <a
-          href="tel:+919910050448"
-          className="flex items-center gap-2 "
-        >
-          <FaPhoneAlt />
-          +91 9910050448
-        </a>
-
+            {/* Right - Phone */}
+            <div>
+              <a
+                href="tel:+9108045476539"
+                className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium "
+              >
+                <FaPhoneAlt className="text-sm sm:text-base" />
+                <span className="truncate">+91 08045476539</span>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
-
-      {/* Right - Social Icons (hidden on mobile) */}
-
-      <div className="hidden sm:flex items-center gap-2">
-
-        {socialLinks.map((item, index) => (
-          <Link
-            key={index}
-            href={item.href}
-            className="w-8 h-8 rounded-sm bg-white/20 hover:bg-[#b99631] transition-all duration-300 flex items-center justify-center"
-          >
-            {item.icon}
-          </Link>
-        ))}
-
-      </div>
-
-    </div>
-
-  </div>
-</div>
 
       {/* ===================== NAVBAR ===================== */}
 
       <nav className="bg-white border-b border-gray-200">
-
         <div className="max-w-7xl mx-auto px-5">
-
           <div className="h-17 flex items-center justify-between">
-
             {/* Logo */}
 
             <Link href="/" className="flex items-center">
-
               <Image
                 src="/logo.jpeg"
                 alt="Logo"
-                width={80}
-                height={80}
+                width={160}
+                height={64}
                 priority
-                className="object-contain"
+                className="object-contain h-12 sm:h-14 w-auto"
               />
-
             </Link>
 
             {/* Desktop Menu */}
 
             <div className="hidden lg:flex items-center gap-12">
-
               {navLinks.map((item) => (
                 <Link
                   key={item.title}
@@ -154,14 +85,11 @@ export default function Navbar() {
                 >
                   {item.title}
 
-                  {item.dropdown && (
-                    <FaChevronDown className="text-[11px]" />
-                  )}
+                  {item.dropdown && <FaChevronDown className="text-[11px]" />}
 
                   <span className="absolute left-0 -bottom-2 h-[2px] w-0 bg-[#b99631] transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               ))}
-
             </div>
 
             {/* Mobile Menu Button */}
@@ -172,11 +100,8 @@ export default function Navbar() {
             >
               {mobileMenu ? <FaTimes /> : <FaBars />}
             </button>
-
           </div>
-
         </div>
-
       </nav>
 
       {/* ===================== MOBILE MENU ===================== */}

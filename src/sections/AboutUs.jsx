@@ -10,7 +10,7 @@ const keyFacts = [
 
 export default function AboutUsSection() {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-white scroll-mt-[450] md:scroll-mt-[100]" id="about">
       <div className="max-w-7xl mx-auto px-5">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
           {/* Narrative */}

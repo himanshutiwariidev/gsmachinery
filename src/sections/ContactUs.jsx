@@ -4,38 +4,43 @@ import { useState } from "react";
 import {
   FaMapMarkerAlt,
   FaPhoneAlt,
-  FaEnvelope,
   FaClock,
   FaPaperPlane,
+  FaGlobeAsia,
 } from "react-icons/fa";
 
 const contactInfo = [
   {
-    icon: FaMapMarkerAlt,
-    label: "Address",
+    icon: FaGlobeAsia,
+    label: "Country/State",
     value: "Delhi, India",
   },
   {
     icon: FaPhoneAlt,
     label: "Phone",
-    value: "+91 9910050448",
-    href: "tel:+919910050448",
-  },
-  {
-    icon: FaEnvelope,
-    label: "Email",
-    value: "info@gsmachinery1.com",
-    href: "mailto:info@gsmachinery1.com",
+    value: "+91 08045476539",
+    href: "tel:+9108045476539",
   },
   {
     icon: FaClock,
     label: "Working Hours",
     value: "Mon – Sat: 9:00 AM – 6:00 PM",
   },
+  {
+    icon: FaMapMarkerAlt,
+    label: "Address",
+    value:
+      "Kh. No. 10/3, Ground Floor, Near Shani Mandir, Tikri Khurd Village, Delhi - 110040, India",
+  },
 ];
 
 export default function ContactUsSection() {
-  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e) => {
@@ -49,7 +54,10 @@ export default function ContactUsSection() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-[#f7f7f7]">
+    <section
+      id="contact"
+      className="py-20 bg-[#f7f7f7] scroll-mt-[450] md:scroll-mt-[100]"
+    >
       <div className="max-w-7xl mx-auto px-5">
         <div className="text-center mb-14">
           <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#b99631] mb-3">
@@ -60,8 +68,8 @@ export default function ContactUsSection() {
           </h2>
           <div className="w-16 h-[3px] bg-[#b99631] mx-auto mt-4"></div>
           <p className="mt-5 text-[15px] leading-7 text-gray-500 max-w-xl mx-auto">
-            Have a question about our machines or need a custom quote? Reach
-            out and our team will get back to you shortly.
+            Have a question about our machines or need a custom quote? Reach out
+            and our team will get back to you shortly.
           </p>
         </div>
 
@@ -87,7 +95,11 @@ export default function ContactUsSection() {
                 );
 
                 return item.href ? (
-                  <a key={item.label} href={item.href} className="block hover:opacity-80 transition-opacity duration-300">
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    className="block hover:opacity-80 transition-opacity duration-300"
+                  >
                     {content}
                   </a>
                 ) : (

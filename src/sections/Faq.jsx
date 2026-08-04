@@ -36,7 +36,7 @@ const faqs = [
   },
 ];
 
-export default function FaqSection() {
+export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
