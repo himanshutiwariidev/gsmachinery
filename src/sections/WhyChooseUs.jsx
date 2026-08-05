@@ -13,39 +13,46 @@ import {
 const reasons = [
   {
     icon: LuFactory,
-    title: "Manufacturing Excellence",
+    title: "18+ Years of Manufacturing Experience",
     description:
-      "In-house manufacturing with precision engineering and rigorous quality control at every stage of production.",
+      "We started in 2008, and since then we have kept improving our machines based on real feedback from real factories. This experience helps us build machines that solve everyday production problems, not just machines that look good on paper.",
   },
   {
     icon: LuBadgeCheck,
-    title: "ISO 9001:2015 Certified",
+    title: "ISO 9001:2015 Certified Manufacturing",
     description:
-      "Certified quality management systems ensure every machine we build is consistent, reliable and built to last.",
+      "Our machines go through proper quality checks at every stage. This certification means our production process follows international quality standards, so you get a machine that is safe, consistent, and reliable.",
   },
   {
     icon: LuCpu,
-    title: "Advanced Technology",
+    title: "Wide Range of Machines",
     description:
-      "Cutting-edge PET blowing, bottle-making and blow moulding technology engineered for high-volume production.",
-  },
-  {
-    icon: LuHeadset,
-    title: "Dedicated Support",
-    description:
-      "Responsive after-sales service and technical support to keep your production line running without downtime.",
+      "We do not make just one type of machine. Our range includes:",
+    list: [
+      "2 & 6 Cavity Pet Blowing Machine",
+      "Automatic Blow Molding Machine",
+      "Fully Automatic Bottle Making Machine",
+    ],
+    footnote:
+      "Whatever size of bottle or jar you need to make, we likely have a machine that fits your requirement, or we can customize one for you.",
   },
   {
     icon: LuTruck,
-    title: "Pan-India Delivery",
+    title: "Delhi-Based, Pan-India Delivery",
     description:
-      "A reliable supply chain and timely delivery network reaching manufacturers across every major market in India.",
+      "Being a pet bottle making machine manufacturer in Delhi, we are well connected to major transport routes, which helps us deliver machines across India, usually within 10 days of order confirmation.",
+  },
+  {
+    icon: LuHeadset,
+    title: "Real Support After You Buy",
+    description:
+      "A machine is not just about the purchase; it's about how it runs for years. Our team helps with installation, trains your operators, and provides spare parts and technical support whenever you need it. This is one of the biggest reasons our clients stay with us for years.",
   },
   {
     icon: LuHandshake,
-    title: "Trusted Partnership",
+    title: "Fair, Transparent Pricing",
     description:
-      "Long-term relationships built on transparency, fair pricing and dependable service you can count on.",
+      "We believe in honest pricing with no hidden costs. Our machines are priced to match their quality, so you get real value for your investment, not just a low number on paper.",
   },
 ];
 
@@ -90,17 +97,17 @@ export default function WhyChooseUsSection() {
           </div>
 
           <h2 className="mt-5 text-[26px] sm:text-[36px] lg:text-[42px] font-extrabold leading-tight">
-            <span className="text-[#232831]">Built On </span>
-            <span className="text-[#b99631]">Precision, </span>
-            <span className="text-[#232831]">Trusted For </span>
-            <span className="text-[#b99631]">Performance</span>
+            <span className="text-[#232831]">Why Choose </span>
+            <span className="text-[#b99631]">GS Machinery </span>
+            <span className="text-[#232831]">as Your Pet Bottle Making Machine </span>
+            <span className="text-[#b99631]">Manufacturer</span>
           </h2>
 
           <div className="w-16 h-[3px] bg-[#b99631] mx-auto mt-4"></div>
 
           <p className="mt-5 max-w-2xl mx-auto text-[15px] leading-7 text-gray-500">
-            Over a decade of engineering plastic machinery that manufacturers
-            rely on for consistent output, durability and after-sales care.
+            Choosing the right manufacturer is just as important as choosing
+            the right machine. Here is why businesses across India choose us:
           </p>
         </div>
 
@@ -127,6 +134,26 @@ export default function WhyChooseUsSection() {
                 <p className="mt-2 text-sm leading-6 text-gray-500">
                   {reason.description}
                 </p>
+
+                {reason.list && (
+                  <ul className="mt-3 space-y-1.5">
+                    {reason.list.map((item) => (
+                      <li
+                        key={item}
+                        className="flex items-start gap-2 text-sm leading-6 text-gray-500"
+                      >
+                        <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[#b99631] shrink-0"></span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                {reason.footnote && (
+                  <p className="mt-3 text-sm leading-6 text-gray-500">
+                    {reason.footnote}
+                  </p>
+                )}
               </div>
             </div>
           ))}

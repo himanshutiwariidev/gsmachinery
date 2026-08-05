@@ -35,11 +35,11 @@ export default function Navbar() {
     <header className="w-full sticky top-0 left-0 z-50 shadow-md">
       {/* ===================== TOP BAR ===================== */}
       <div className="bg-[#c3ab5d] text-white pb-2">
-        <div className="max-w-7xl mx-auto px-3 sm:px-5">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-2  sm:gap-6 py-4 sm:py-0 h-14 sm:h-12">
+        <div className="max-w-7xl mx-auto px-2 sm:px-5">
+          <div className="flex  items-center justify-between gap-2  sm:gap-6 py-4 sm:py-0 h-14 sm:h-12">
             {/* Left - GST */}
             <div className="text-xs sm:text-sm font-semibold">
-              <span>GST : 07AICPG7964K1ZW</span>
+              <span>GST :07AICPG7964K1ZW</span>
             </div>
 
             {/* Right - Phone */}

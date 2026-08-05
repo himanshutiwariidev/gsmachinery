@@ -6,7 +6,7 @@ export const Hero = () => {
       {/* Desktop Banner */}
       <div className="hidden md:block relative w-full h-[600px]">
         <Image
-          src="/desktopbanner.webp"
+          src="/banner.png"
           alt="PET Blowing Machine Banner"
           fill
           priority
@@ -16,15 +16,19 @@ export const Hero = () => {
       </div>
 
       {/* Mobile Banner */}
-      <div className="md:hidden relative w-full h-[350px]">
+      <div className="md:hidden relative w-full h-[500px]">
         <Image
-          src="/mobilebanner.webp"
+          src="/mobilebanner.png"
           alt="PET Blowing Machine Banner"
           fill
           className="object-cover"
           sizes="100vw"
         />
       </div>
+
+      <h1 className="text-2xl md:text-4xl font-semibold md:font-bold text-center mt-8 mb-4">
+        Pet Bottle Making Machine Manufacturer in Delhi – GS Machinery
+      </h1>
     </section>
   );
 };

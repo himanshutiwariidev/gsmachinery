@@ -19,31 +19,21 @@ export default function AboutUsSection() {
               About Us
             </p>
             <h2 className="text-[28px] sm:text-[36px] font-extrabold text-[#232831] leading-tight mb-6">
-              Manufacturing Excellence Since{" "}
+            GS Machinery: Building Pet Bottle Making Machines in Delhi Since
+{" "}
               <span className="text-[#b99631]">2008</span>
             </h2>
 
             <div className="space-y-4 text-[15px] leading-7 text-gray-600">
               <p>
-                Since 2008, we, GS Machinery, have been striving day and
-                night to meet all the demands for high-performance Automatic
-                Blow Molding Machines, Air Dryers, Soda Bottle Blowing
-                Machines, Fully Automatic Bottle Making Machines, Automatic
-                PET Bottle Making Machines, and other products.
+               Since 2008, GS Machinery has manufactured and supplied more than 1,000 pet bottle making machines to over 1,200 clients across India, from small water bottling units to large-scale beverage and pharma packaging plants. That is not a marketing line; it is the number of machines running on factory floors right now, every day, because a business somewhere trusted us to build them.
+
               </p>
               <p>
-                We are registered manufacturers and suppliers located in the
-                capital city of India, Delhi. Backed by excellent resources,
-                we are continually achieving excellence across all our
-                business activities.
+                We are an ISO 9001:2015 certified pet bottle making machine manufacturer based in Delhi, and this certification is not just a badge on our website. It means every machine goes through a fixed quality process before it leaves our unit, so what you install in your factory. Mr. Sujeet Gupta (Proprietor), who has personally overseen the design and manufacturing of every machine since day one. Being a pet bottle making machine manufacturer in Delhi also keeps us close to major transport routes, so most machines reach clients across India within 10 days. 
+
               </p>
-              <p>
-                Thus, we are a customer-centric organization, ensuring
-                timely completion of orders, secure transactions, flexible
-                business policies, and other benefits. Over the years, we
-                have achieved tremendous growth and the support of a large
-                clientele because of our hard work.
-              </p>
+            
             </div>
           </div>
 
