@@ -45,11 +45,11 @@ export default function Navbar() {
             {/* Right - Phone */}
             <div>
               <a
-                href="tel:+9108045476539"
+                href="tel:+918588966670"
                 className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium "
               >
                 <FaPhoneAlt className="text-sm sm:text-base" />
-                <span className="truncate">+91 08045476539</span>
+                <span className="truncate">+91 8588966670</span>
               </a>
             </div>
           </div>

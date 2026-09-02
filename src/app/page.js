@@ -10,6 +10,7 @@ import TestimonialsSection from "@/sections/Testimonials";
 import ContactUsSection from "@/sections/ContactUs";
 import { Hero } from "@/sections/Hero";
 import FAQ from "@/sections/Faq";
+import WhatsAppButton from "@/components/FloatingButton";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
    <GallerySection/>
    <TestimonialsSection/>
    <ContactUsSection/>
+   <WhatsAppButton/>
    </>
   );
 }

@@ -18,8 +18,8 @@ const contactInfo = [
   {
     icon: FaPhoneAlt,
     label: "Phone",
-    value: "+91 08045476539",
-    href: "tel:+9108045476539",
+    value: "+91 8588966670",
+    href: "tel:+918588966670",
   },
   {
     icon: FaClock,
